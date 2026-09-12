@@ -134,6 +134,10 @@ body.player{height:100vh;height:100dvh;display:flex;flex-direction:column;overfl
 
 .step{opacity:0;transition:opacity .28s ease}
 .step.shown{opacity:1}
+/* .mark blendet nicht ein, sondern färbt auf Knopfdruck gold — für
+   Stellen, die im Satz stehenbleiben und nur hervorgehoben werden. */
+.step.mark{opacity:1;transition:color .28s ease}
+.step.mark.shown{color:var(--gold)}
 @media (prefers-reduced-motion:reduce){.step{transition:none}}
 
 /* ---------- Fußzeile ---------- */

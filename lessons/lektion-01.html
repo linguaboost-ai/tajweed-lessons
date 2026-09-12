@@ -38,7 +38,7 @@ const LESSON = {
       <p>Heute schauen wir uns einfache <b>Zeigesätze</b> an.</p>` },
     { label:"Die drei Wörter", html:`
       <p>Dazu gibt es drei Wörter, und hier kommen sie schon:</p>
-      <p class="ar">هٰذَا &nbsp; شَيْء &nbsp; سَبِيل</p>` },
+      <p class="ar">هٰذَا &nbsp; شَيۡء &nbsp; سَبِيل</p>` },
     { label:"Lektion", html:`
       <p>Es gibt heute Zeigesätze. Was ist ein Zeigesatz?</p>
       <p>Ein Zeigesatz ist so etwas wie <span class="ar">هٰذَا سَبِيلٌ</span> — zu Deutsch: Das ist ein Weg.</p>` },
@@ -51,8 +51,11 @@ const LESSON = {
       <p>Im Arabischen gibt es kein Wort für „ist". Streng genommen steht da nur „das" und „ein Weg".
       Man braucht kein „ist", man versteht es auch so.</p>` },
     { label:"Lektion", html:`
-      <p>Hier noch ein Beispiel: <span class="ar">هٰذَا شَيْءٌ</span> — Das ist ein Ding.
-      <span class="ar">شَيْء</span> ist ein allgemeines Wort für „etwas", „eine Sache", „irgendetwas".</p>` },
+      <p>Hier noch ein Beispiel: <span class="ar">هٰذَا شَيۡءٌ</span> — Das ist ein Ding.
+      <span class="ar">شَيۡء</span> ist ein allgemeines Wort für „etwas", „eine Sache", „irgendetwas".</p>` },
+    { label:"Lektion", html:`
+      <p>Bisher haben wir drei neue Wörter gelernt, nämlich:</p>
+      <p class="ar">هٰذَا &nbsp; شَيۡء &nbsp; سَبِيل</p>` },
     { label:"Lektion", html:`
       <p>Ihr bekommt noch ein kleines Wort gratis dazu: das Wort „und". Im Arabischen ist es fast nur ein
       Buchstabe: <span class="ar">وَ</span>.</p>` },
@@ -60,9 +63,12 @@ const LESSON = {
       <p>Und anders als im Deutschen steht es nicht allein, sondern wird
       mit dem nächsten Wort verbunden.</p>` },
     { label:"Lektion", html:`
-      <p><span class="ar">هٰذَا سَبِيلٌ وَهٰذَا شَيْءٌ</span> — Das ist ein Weg UND das ist ein Ding.
-      Das <span class="ar">وَ</span> wird einfach direkt vor das <span class="ar">هٰذَا</span> geklebt.</p>
-      <p>Oder umgedreht: <span class="ar">هٰذَا شَيْءٌ وَهٰذَا سَبِيلٌ</span>.</p>` },
+      <p class="cue">— und jetzt im ganzen Satz —</p>
+      <p><span class="ar">هٰذَا سَبِيلٌ وَهٰذَا شَيۡءٌ</span> — Das ist ein Weg UND das ist ein Ding.
+      Das <span class="ar">وَ</span> wird einfach direkt vor das <span class="ar">هٰذَا</span> geklebt.</p>` },
+    { label:"Lektion", html:`
+      <p class="cue">— und jetzt umgekehrt —</p>
+      <p><span class="ar">هٰذَا شَيۡءٌ وَهٰذَا سَبِيلٌ</span> — Das ist ein Ding UND das ist ein Weg.</p>` },
     { label:"Abschluss", html:`
       <p>Das war's für heute. Wir haben drei neue Wörter gelernt, daraus einen einfachen Zeigesatz gebildet
       und das Wörtchen <span class="ar">وَ</span> für „und" kennengelernt.</p>` },
@@ -71,73 +77,68 @@ const LESSON = {
   ],
   slides: [
     { s:0, html:`<div class="title">Quran verstehen lernen
-        <span class="sub">Lektion 1 · Zeigesätze</span></div>` },
+        <span class="sub">Lektion 1</span></div>` },
 
     { s:1, html:`<div class="title">Heute: Zeigesätze</div>` },
 
     { s:2, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m"></div></div>
-        <div class="vrow step" data-step="1"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m"></div></div>
+        <div class="vrow step" data-step="1"><div class="emoji">📦</div><div class="w ar">شَيۡء</div><div class="m"></div></div>
         <div class="vrow step" data-step="2"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m"></div></div>
       </div>` },
 
     { s:3, html:`<div class="ar ar-xl">هٰذَا سَبِيلٌ</div>
         <div class="de big step" data-step="1">Das ist ein Weg.</div>` },
 
-    { s:3, html:`<div class="vocab">
-        <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
-      </div>` },
-
     { s:4, html:`<div class="vocab">
-        <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
+        <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
+        <div class="vrow step" data-step="1"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
       </div>` },
 
-    { s:4, html:`<div class="kicker">Wo steht „ist"?</div>
-      <div class="parse">
+    { s:5, html:`<div class="parse">
         <div class="cell"><div class="p-ar">هٰذَا</div><div class="arrow">↓</div><div class="p-de">das</div></div>
-        <div class="cell"><div class="gap"></div><div class="p-de step" data-step="1">— nichts —</div></div>
+        <div class="cell"><div class="gap"></div><div class="p-de"></div></div>
         <div class="cell"><div class="p-ar">سَبِيلٌ</div><div class="arrow">↓</div><div class="p-de">ein Weg</div></div>
       </div>
-      <div class="de big step" data-step="2">Das ist ein Weg.</div>` },
+      <div class="de big step" data-step="1">Das ist ein Weg.</div>` },
 
-    { s:5, html:`<div class="ar ar-xl">هٰذَا شَيْءٌ</div>
+    { s:6, html:`<div class="ar ar-xl">هٰذَا شَيۡءٌ</div>
         <div class="de big step" data-step="1">Das ist ein Ding.</div>` },
 
     { s:6, html:`<div class="vocab">
-        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding · Sache · etwas</div></div>
+        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيۡء</div><div class="m">Ding · Sache · etwas</div></div>
       </div>` },
 
-    { s:6, html:`<div class="vocab">
+    { s:7, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
-        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding</div></div>
+        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيۡء</div><div class="m">Ding</div></div>
         <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
       </div>` },
 
-    { s:7, html:`<div class="kicker">Ein Wort geschenkt</div>
-      <div class="ar ar-xl gold">وَ</div>
+    { s:8, html:`<div class="kicker">Ein Wort geschenkt</div>
+      <div class="ar ar-xl">وَ</div>
       <div class="de big step" data-step="1">und</div>` },
 
-    { s:8, html:`<div class="glue">
+    { s:9, html:`<div class="glue">
         <div class="piece gold">وَ</div><div class="plus">+</div><div class="piece">هٰذَا</div>
       </div>
       <div class="de big step" data-step="1"><span class="ar ar-l"><span class="gold">وَ</span>هٰذَا</span></div>` },
 
-    { s:8, html:`<div class="ar ar-l">هٰذَا سَبِيلٌ <span class="gold">وَ</span>هٰذَا شَيْءٌ</div>
-      <div class="de big step" data-step="1">Das ist ein Weg <b>und</b> das ist ein Ding.</div>` },
+    { s:10, html:`<div class="ar ar-l">هٰذَا سَبِيلٌ <span class="gold">وَ</span>هٰذَا شَيۡءٌ</div>
+      <div class="de big step" data-step="1">Das ist ein Weg <span class="gold">und</span> das ist ein Ding.</div>` },
 
-    { s:9, html:`<div class="ar ar-l">هٰذَا شَيْءٌ <span class="gold">وَ</span>هٰذَا سَبِيلٌ</div>
-      <div class="de big step" data-step="1">Das ist ein Ding <b>und</b> das ist ein Weg.</div>` },
+    { s:11, html:`<div class="ar ar-l">هٰذَا شَيۡءٌ <span class="gold">وَ</span>هٰذَا سَبِيلٌ</div>
+      <div class="de big step" data-step="1">Das ist ein Ding <span class="gold">und</span> das ist ein Weg.</div>` },
 
-    { s:10, html:`<div class="vocab">
+    { s:12, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
-        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding</div></div>
+        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيۡء</div><div class="m">Ding</div></div>
         <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
       </div>
-      <div class="de step" data-step="1"><span class="ar ar-m">هٰذَا سَبِيلٌ</span></div>
-      <div class="de step" data-step="2"><span class="ar ar-m gold">وَ</span> &nbsp;=&nbsp; und</div>` },
+      <div class="de big step" data-step="1"><span class="ar ar-m">هٰذَا سَبِيلٌ</span></div>
+      <div class="de big step" data-step="2"><span class="ar ar-m">وَ</span> &nbsp;=&nbsp; und</div>` },
 
-    { s:11, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
-
+    { s:13, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
   ]
 };
 </script>
