@@ -64,14 +64,25 @@ LESSON.slides.forEach((sl,i)=>{
   stage.appendChild(d);
 });
 
+/* ---------- Home-Button, oben links unter den Notizen ---------- */
+const heim = document.createElement('a');
+heim.id = 'home';
+heim.href = '../index.html';
+heim.title = 'Zur Lektionsübersicht (Esc)';
+heim.setAttribute('aria-label','Zur Lektionsübersicht');
+heim.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 10.6 12 3.2l9 7.4"/><path d="M5.6 9.6V20.3h12.8V9.6"/><path d="M9.9 20.3v-5.4h4.2v5.4"/></svg>`;
+stage.appendChild(heim);
+
 /* ---------- Navigationszeile ---------- */
 const KURS = window.LESSONS || [];
 const pos  = KURS.findIndex(l=>l.no===LESSON.no);
 const vor  = pos>0 ? KURS[pos-1] : null;
 const nach = pos>=0 && pos<KURS.length-1 ? KURS[pos+1] : null;
 if(meta){
-  const teile = ['<a href="../index.html" title="Zur Übersicht">⌂ Übersicht</a>'];
-  if(KURS.length) teile.push(`<span class="sep">·</span><span>Lektion ${LESSON.no} von ${KURS.length}</span>`);
+  const teile = [];
+  if(KURS.length) teile.push(`<span>Lektion ${LESSON.no} von ${KURS.length}</span>`);
   if(vor)  teile.push(`<span class="sep">·</span><a href="${vor.file}" title="Lektion ${vor.no}: ${vor.thema}">‹ vorige</a>`);
   if(nach) teile.push(`<span class="sep">·</span><a href="${nach.file}" title="Lektion ${nach.no}: ${nach.thema}">nächste ›</a>`);
   meta.innerHTML = teile.join(' ');

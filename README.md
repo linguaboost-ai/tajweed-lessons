@@ -3,9 +3,14 @@
 Ein Kurs in 20 Lektionen als Folienpräsentation — reines HTML, CSS und JavaScript,
 kein Build-Schritt, keine Abhängigkeiten. Einfach `index.html` im Browser öffnen.
 
-Das Arabische ist in **Amiri Quran** gesetzt, dem Quran-Schnitt der Amiri; wo dieser
-ein Zeichen nicht abdeckt, springt die normale Amiri ein — dieselbe Schrift, gleiches
-Schriftbild. Beide kommen von Google Fonts.
+Das Arabische ist in **KFGQPC Uthmanic Script HAFS** gesetzt, der Schrift des Mushaf.
+Sie liegt als `uthmanic.woff2` im Repo und deckt alle 271 Zeichen ab, die der Kurs
+braucht — aber nur quranisches Arabisch, keine lateinischen. Trennzeichen und
+Ähnliches fangen **Amiri Quran** und **Amiri** von Google Fonts auf.
+
+> Die Uthmanic trägt eine eigene Lizenz des King Fahd Glorious Quran Printing Complex
+> (siehe `name`-Tabelle der Schriftdatei). Wer das Repo weitergibt oder die Schrift
+> anderweitig einsetzt, sollte einmal hineinschauen.
 
 ## Aufbau
 
@@ -32,12 +37,13 @@ und wird von allen 20 Dateien geteilt.
 | `→` `←` `Leertaste` | vor und zurück (auch durch die Einblendungen) |
 | `T` | Notizleiste ein-/ausblenden |
 | `F` | Vollbild |
-| `Esc` | zurück zur Übersicht |
+| `Esc` | zurück zur Übersicht (wie der Home-Button oben links) |
 | `N` `P` | nächste / vorige Lektion |
 | `Home` `End` | erste / letzte Folie |
 
 Klicken funktioniert ebenfalls: linkes Viertel zurück, sonst vor. Auf dem Handy
-wird gewischt.
+wird gewischt. Oben links, direkt unter den Notizen, sitzt auf jeder Folie ein
+**Home-Button** zurück zur Lektionsübersicht.
 Der Lernfortschritt wird im `localStorage` des Browsers gemerkt — die Übersicht
 zeigt dann „Weiter mit Lektion …“ und markiert durchgearbeitete Lektionen.
 
