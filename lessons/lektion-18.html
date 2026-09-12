@@ -7,7 +7,7 @@
 <title>Lektion 18 · Zeit und Bedingung — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -41,24 +41,31 @@ const LESSON = {
       <p class="ar">قَدْ &nbsp; لَمْ &nbsp; لَنْ &nbsp; سَـ &nbsp; إِذَا</p>` },
     { label:"Lektion", html:`
       <p>Fünf kleine Wörter. Jedes steht vor dem Verb und verändert, wann etwas geschieht — oder ob
-      überhaupt.</p>
+      überhaupt.</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">قَدْ</span> vor einer Vergangenheit heißt <i>bereits, tatsächlich</i>. Es macht
-      aus „sie waren erfolgreich" ein „sie sind es wirklich geworden".</p>
+      aus „sie waren erfolgreich" ein „sie sind es wirklich geworden".</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">قَدْ أَفْلَحَ الْمُؤْمِنُونَ</span> — <i>Wahrlich, erfolgreich sind die
       Gläubigen.</i> Da steht euer Plural aus Lektion 11 und euer Verb aus Lektion 12.</p>
-      <p class="cue">— und jetzt wird verneint —</p>
+      <p class="cue">— und jetzt wird verneint —</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">لَمْ</span> ist ein Trick: es steht vor der <b>Gegenwart</b>, verneint aber die
       <b>Vergangenheit</b>. <span class="ar">يَلِدُ</span> heißt <i>er zeugt</i>,
-      <span class="ar">لَمْ يَلِدْ</span> heißt <i>er hat nicht gezeugt</i>.</p>
+      <span class="ar">لَمْ يَلِدْ</span> heißt <i>er hat nicht gezeugt</i>.</p>` },
+    { label:"Lektion", html:`
       <p>Ihr kennt den Vers: <span class="ar">لَمْ يَلِدْ وَلَمْ يُولَدْ</span> —
       <i>Er hat nicht gezeugt und wurde nicht gezeugt.</i></p>
-      <p><span class="ar">لَنْ</span> verneint dagegen die Zukunft: <i>wird niemals</i>.</p>
+      <p><span class="ar">لَنْ</span> verneint dagegen die Zukunft: <i>wird niemals</i>.</p>` },
+    { label:"Lektion", html:`
       <p>Und die Zukunft selbst? Die ist am billigsten zu haben: ein <span class="ar">سَـ</span> vor das
       Gegenwartsverb, fertig. <span class="ar">يَعْلَمُ</span> (er weiß) →
-      <span class="ar">سَيَعْلَمُ</span> (er wird wissen).</p>
+      <span class="ar">سَيَعْلَمُ</span> (er wird wissen).</p>` },
+    { label:"Lektion", html:`
       <p>Zuletzt <span class="ar">إِذَا</span> — <i>wenn, als</i>. Damit beginnt eine ganze Sure:</p>
       <p><span class="ar">إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ</span> —
-      <i>Wenn die Hilfe Allahs kommt und der Sieg.</i></p>
+      <i>Wenn die Hilfe Allahs kommt und der Sieg.</i></p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">جَاءَ</span> heißt <i>er kam</i>, <span class="ar">نَصْر</span> ist <i>Hilfe</i>,
       <span class="ar">الْفَتْح</span> ist <i>der Sieg</i>. Und <span class="ar">نَصْرُ اللَّهِ</span>
       ist wieder eine Iḍāfa — Lektion 9.</p>` },
@@ -95,36 +102,36 @@ const LESSON = {
       </div>
       <div class="de small step" data-step="1">Plural aus Lektion 11, Verb aus Lektion 12.</div>` },
 
-    { s:3, html:`<div class="kicker">Ein Trick</div>
+    { s:4, html:`<div class="kicker">Ein Trick</div>
       <div class="de big">لَمْ steht vor der <b>Gegenwart</b> …</div>
       <div class="de big step" data-step="1">… verneint aber die <b>Vergangenheit</b>.</div>` },
 
-    { s:3, html:`<div class="pair">
+    { s:5, html:`<div class="pair">
         <div class="col"><h5>ohne لَمْ</h5><div class="ar">يَلِدُ</div><div class="m">er zeugt</div></div>
         <div class="col"><h5>mit لَمْ</h5><div class="ar">لَمْ يَلِدْ</div><div class="m">er hat nicht gezeugt</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Sure 112, Vers 3</div>
+    { s:6, html:`<div class="kicker">Sure 112, Vers 3</div>
       <div class="ar ar-l">لَمْ يَلِدْ وَلَمْ يُولَدْ</div>
       <div class="de big step" data-step="1">Er hat nicht gezeugt und wurde nicht gezeugt.</div>` },
 
-    { s:3, html:`<div class="kicker">Die Zukunft ist billig zu haben</div>
+    { s:7, html:`<div class="kicker">Die Zukunft ist billig zu haben</div>
       <div class="glue">
         <div class="piece gold">سَـ</div><div class="plus">+</div><div class="piece">يَعْلَمُ</div>
         <div class="plus">=</div><div class="piece">سَيَعْلَمُ</div>
       </div>
       <div class="de big step" data-step="1">er weiß → er wird wissen</div>` },
 
-    { s:3, html:`<div class="pair">
+    { s:8, html:`<div class="pair">
         <div class="col"><h5>Zukunft</h5><div class="ar">سَيَعْلَمُ</div><div class="m">er wird wissen</div></div>
         <div class="col"><h5>Zukunft verneint</h5><div class="ar">لَنْ يَعْلَمَ</div><div class="m">er wird niemals wissen</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Sure 110, Vers 1</div>
+    { s:9, html:`<div class="kicker">Sure 110, Vers 1</div>
       <div class="ar ar-l">إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ</div>
       <div class="de big step" data-step="1">Wenn die Hilfe Allahs kommt und der Sieg.</div>` },
 
-    { s:3, html:`<div class="parse wide">
+    { s:10, html:`<div class="parse wide">
         <div class="cell"><div class="p-ar gold">إِذَا</div><div class="arrow">↓</div><div class="p-de">wenn</div></div>
         <div class="cell"><div class="p-ar">جَاءَ</div><div class="arrow">↓</div><div class="p-de">kam</div></div>
         <div class="cell"><div class="p-ar">نَصْرُ اللَّهِ</div><div class="arrow">↓</div><div class="p-de">die Hilfe Allahs</div></div>
@@ -132,14 +139,15 @@ const LESSON = {
       </div>
       <div class="de small step" data-step="1">نَصْرُ اللَّهِ — eine Iḍāfa, wie in Lektion 9.</div>` },
 
-    { s:4, html:`<div class="rows">
+    { s:11, html:`<div class="rows">
         <div class="rowi"><div class="a">قَدْ</div><div class="b">bereits · tatsächlich</div></div>
         <div class="rowi"><div class="a">لَمْ &nbsp;·&nbsp; لَنْ</div><div class="b">hat nicht · wird niemals</div></div>
         <div class="rowi"><div class="a">سَـ</div><div class="b">wird</div></div>
         <div class="rowi"><div class="a">إِذَا</div><div class="b">wenn · als</div></div>
       </div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:11, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>

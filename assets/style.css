@@ -14,7 +14,10 @@
   --dim:rgba(255,255,255,.42);
   --dimmer:rgba(255,255,255,.22);
   --line:rgba(255,255,255,.12);
-  --strip:20vh;
+  --strip:22vh;
+  /* Amiri Quran ist der Quran-Schnitt der Amiri; Amiri fängt auf,
+     was jener nicht abdeckt. Beides dieselbe Schrift, gleiches Bild. */
+  --font-ar:"Amiri Quran",Amiri,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -22,9 +25,9 @@ body{
   background:var(--stage);color:var(--stage-ink);
   font-family:"IBM Plex Sans",system-ui,sans-serif;
 }
-.ar{font-family:Amiri,serif;direction:rtl;line-height:1.7}
+.ar{font-family:var(--font-ar);direction:rtl;line-height:1.7}
 /* Arabische Einsprengsel in deutschem Fließtext: eigene Schrift, eigene Laufrichtung */
-.ar-in{font-family:Amiri,serif;font-size:1.18em;direction:rtl;unicode-bidi:isolate}
+.ar-in{font-family:var(--font-ar);font-size:1.18em;direction:rtl;unicode-bidi:isolate}
 .gold{color:var(--gold)}
 a{color:inherit}
 
@@ -34,33 +37,43 @@ a{color:inherit}
 body.player{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
 
 /* ---------- Transkriptleiste ---------- */
+/* Die Leiste ist ein Fenster auf eine Schiene, die breiter ist als sie:
+   je fünf Boxen bilden eine Seite, die Schiene rutscht seitenweise. */
 #strip{
-  flex:0 0 var(--strip);display:grid;grid-template-columns:repeat(var(--cols,5),1fr);
-  /* minmax(0,1fr) + min-height:0 halten die Leiste auf ihren 20vh — sonst
-     drückt der Text der längsten Box sie über die ganze Höhe auf. */
-  grid-template-rows:minmax(0,1fr);min-height:0;
-  gap:1px;background:#3a3a3a;border-bottom:1px solid #3a3a3a;
+  flex:0 0 var(--strip);min-height:0;overflow:hidden;
+  background:#3a3a3a;border-bottom:1px solid #3a3a3a;
 }
 #strip.hidden{display:none}
+#track{
+  display:grid;height:100%;
+  /* Breite und Spalten setzt der Player, sobald er die Boxen kennt. */
+  transform:translateX(0);transition:transform .32s cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-reduced-motion:reduce){#track{transition:none}}
 .box{
   background:var(--paper);color:var(--ink);padding:.7rem .85rem;
-  overflow-y:auto;min-height:0;font-size:.78rem;line-height:1.5;
-  border-top:3px solid transparent;transition:border-color .15s,opacity .15s;
+  overflow:hidden;min-height:0;font-size:.78rem;line-height:1.45;
+  border-top:3px solid transparent;border-right:1px solid #3a3a3a;
+  transition:border-color .15s,opacity .15s;
   opacity:.55;cursor:pointer;
 }
+.box.leer{cursor:default;opacity:.55}
 .box.on{opacity:1;border-top-color:var(--gold)}
 .box h4{
   font-size:.62rem;font-weight:600;letter-spacing:.04em;
   color:#6b6b6b;margin-bottom:.4rem;
 }
-.box p{margin-bottom:.55rem}
+.box p{margin-bottom:.45rem}
 .box p:last-child{margin-bottom:0}
-.box .ar{font-family:Amiri,serif;font-size:1.15em}
+.box .ar{font-family:var(--font-ar);font-size:1.22em}
 .box .cue{color:#9a9a9a}
 
 /* ---------- Bühne ---------- */
-#stage{flex:1;display:flex;align-items:center;justify-content:center;padding:3vh 4vw;position:relative;min-height:0}
+#stage{flex:1;display:flex;align-items:center;justify-content:center;
+  padding:3vh 4vw calc(3vh + 1.7rem);position:relative;min-height:0;overflow:hidden}
 .slide{display:none;width:100%;max-width:1100px;text-align:center}
+/* Der Player verkleinert eine zu hohe Folie, damit sie nie in die Notizen ragt. */
+.slide.on{transform-origin:center center}
 .slide.on{display:block}
 
 .kicker{font-size:clamp(1.1rem,2.4vw,1.9rem);font-weight:400;color:var(--dim);margin-bottom:2.5rem}
@@ -80,13 +93,13 @@ body.player{height:100vh;height:100dvh;display:flex;flex-direction:column;overfl
 .vocab{display:inline-flex;flex-direction:column;gap:1.6rem;text-align:right;margin:0 auto}
 .vrow{display:grid;grid-template-columns:1.6em minmax(0,1fr) auto;align-items:baseline;gap:2rem;direction:rtl}
 .vrow .emoji{font-size:clamp(1.6rem,3.6vw,2.6rem);direction:ltr}
-.vrow .w{font-family:Amiri,serif;font-size:clamp(2.2rem,6vw,4.2rem)}
+.vrow .w{font-family:var(--font-ar);font-size:clamp(2.2rem,6vw,4.2rem)}
 .vrow .m{direction:ltr;text-align:left;font-size:clamp(1rem,2.4vw,1.6rem);color:var(--dim);white-space:nowrap}
 
 /* Wort-für-Wort-Zerlegung */
 .parse{display:inline-grid;grid-auto-flow:column;column-gap:clamp(1.2rem,5vw,5rem);direction:rtl;margin:0 auto;max-width:100%}
 .parse .cell{display:flex;flex-direction:column;align-items:center;gap:.9rem}
-.parse .p-ar{font-family:Amiri,serif;font-size:clamp(2rem,7vw,5.2rem)}
+.parse .p-ar{font-family:var(--font-ar);font-size:clamp(2rem,7vw,5.2rem)}
 .parse .arrow{color:var(--gold);font-size:1.6rem;line-height:1}
 .parse .p-de{direction:ltr;font-size:clamp(.9rem,2.3vw,1.6rem);color:var(--dim);min-height:1.4em}
 .parse .gap{border-bottom:2px dashed rgba(217,164,65,.55);min-width:3.5em;align-self:end;margin-bottom:.9rem}
@@ -95,7 +108,7 @@ body.player{height:100vh;height:100dvh;display:flex;flex-direction:column;overfl
 
 /* Verschmelzung / Bausteine */
 .glue{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,4vw,3rem);direction:rtl;flex-wrap:wrap}
-.glue .piece{font-family:Amiri,serif;font-size:clamp(2.2rem,7vw,5.2rem)}
+.glue .piece{font-family:var(--font-ar);font-size:clamp(2.2rem,7vw,5.2rem)}
 .glue .plus{color:var(--gold);font-size:clamp(1.4rem,3.6vw,2.6rem)}
 
 /* Gegenüberstellung zweier Spalten */
@@ -109,7 +122,7 @@ body.player{height:100vh;height:100dvh;display:flex;flex-direction:column;overfl
 /* Tabellenartige Reihen */
 .rows{display:inline-flex;flex-direction:column;gap:1.1rem;margin:0 auto}
 .rowi{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(1.5rem,5vw,4rem);align-items:baseline;direction:rtl}
-.rowi .a{font-family:Amiri,serif;font-size:clamp(1.7rem,4.6vw,3.2rem)}
+.rowi .a{font-family:var(--font-ar);font-size:clamp(1.7rem,4.6vw,3.2rem)}
 .rowi .b{direction:ltr;text-align:left;font-size:clamp(.95rem,2.2vw,1.5rem);color:var(--dim);white-space:nowrap}
 
 .step{opacity:0;transition:opacity .28s ease}
@@ -130,10 +143,7 @@ body.player{height:100vh;height:100dvh;display:flex;flex-direction:column;overfl
 
 /* ---------- Player auf kleinen Geräten ---------- */
 @media (max-width:760px){
-  :root{--strip:26vh}
-  #strip{grid-template-columns:1fr}
-  #strip .box{display:none}
-  #strip .box.on{display:block;opacity:1}
+  :root{--strip:28vh}
   #hint{display:none}
   #meta{right:1rem;justify-content:center}
   .pair{grid-template-columns:1fr;gap:2rem}
@@ -183,7 +193,7 @@ body.home{min-height:100%;padding:clamp(2.5rem,7vw,5.5rem) clamp(1rem,5vw,3rem) 
 .card h3{font-size:1.12rem;font-weight:600;line-height:1.3}
 .card .ziel{font-size:.85rem;line-height:1.55;color:var(--dim);flex:1}
 .card .words{
-  font-family:Amiri,serif;direction:rtl;font-size:1.5rem;line-height:1.5;
+  font-family:var(--font-ar);direction:rtl;font-size:1.5rem;line-height:1.5;
   color:var(--stage-ink);opacity:.82;border-top:1px solid var(--line);padding-top:.85rem;
   display:flex;flex-wrap:wrap;gap:.1rem .9rem;justify-content:flex-start;
 }

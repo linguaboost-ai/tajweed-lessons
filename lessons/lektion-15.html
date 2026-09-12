@@ -7,7 +7,7 @@
 <title>Lektion 15 · Der Befehl — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -41,23 +41,31 @@ const LESSON = {
       <p class="ar">قُلْ &nbsp; اقْرَأْ &nbsp; اهْدِنَا</p>` },
     { label:"Lektion", html:`
       <p>Der Befehl ist im Arabischen die kürzeste Form überhaupt. Man nimmt die Gegenwart, streicht den
-      Buchstaben vorne weg — und fertig.</p>
-      <p><span class="ar">تَقُولُ</span> (du sagst) → <span class="ar">قُلْ</span> (sag!).</p>
+      Buchstaben vorne weg — und fertig.</p>` },
+    { label:"Lektion", html:`
+      <p><span class="ar">تَقُولُ</span> (du sagst) → <span class="ar">قُلْ</span> (sag!).</p>` },
+    { label:"Lektion", html:`
       <p>Bleibt danach ein schwer sprechbarer Anfang übrig, setzt man vorne ein kleines
       <span class="ar">ا</span> davor, nur als Anlauf: <span class="ar">تَقْرَأُ</span> (du liest) →
-      <span class="ar">اقْرَأْ</span> (lies!).</p>
+      <span class="ar">اقْرَأْ</span> (lies!).</p>` },
+    { label:"Lektion", html:`
       <p class="cue">— und das ist das erste Wort des Qurans —</p>
       <p><span class="ar">اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</span> —
-      <i>Lies im Namen deines Herrn, der erschuf.</i></p>
+      <i>Lies im Namen deines Herrn, der erschuf.</i></p>` },
+    { label:"Lektion", html:`
       <p>Ihr kennt fast alles: <span class="ar">بِ</span> ist ein kleines Wort davor wie in Lektion 6,
       es heißt <i>mit, in</i>. <span class="ar">اسْم</span> heißt <i>Name</i> — zusammen eine Iḍāfa aus
-      Lektion 9. <span class="ar">رَبِّكَ</span> ist <i>dein Herr</i> aus Lektion 7. Und
+      Lektion 9. <span class="ar">رَبِّكَ</span> ist <i>dein Herr</i> aus Lektion 7.</p>` },
+    { label:"Lektion", html:`
+      <p>Und
       <span class="ar">خَلَقَ</span> ist das Verb aus Lektion 12.</p>
       <p>Sind mehrere gemeint, kommt hinten ein <span class="ar">ـُوا</span> dazu, wie in Lektion 13:
-      <span class="ar">اعْبُدُوا</span> — <i>dient!</i></p>
+      <span class="ar">اعْبُدُوا</span> — <i>dient!</i></p>` },
+    { label:"Lektion", html:`
       <p>Und wenn ein Befehl an jemanden gerichtet wird, hängt man das Ziel einfach an:
       <span class="ar">اهْدِ</span> heißt <i>leite!</i>, <span class="ar">اهْدِنَا</span> heißt
-      <i>leite uns!</i> — dasselbe <span class="ar">نَا</span> wie immer.</p>
+      <i>leite uns!</i> — dasselbe <span class="ar">نَا</span> wie immer.</p>` },
+    { label:"Lektion", html:`
       <p>Damit lest ihr den sechsten Vers der Fātiḥa:
       <span class="ar">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</span> — <i>Leite uns den geraden Weg.</i>
       Und schaut genau hin: <span class="ar">الصِّرَاطَ</span> mit <span class="ar">الْ</span>,
@@ -94,50 +102,51 @@ const LESSON = {
       </div>
       <div class="de small step" data-step="1">Ein kleines ا vorne, nur als Anlauf.</div>` },
 
-    { s:3, html:`<div class="kicker">Das erste Wort des Qurans</div>
+    { s:4, html:`<div class="kicker">Das erste Wort des Qurans</div>
       <div class="ar ar-xl gold">اقْرَأْ</div>
       <div class="de big step" data-step="1">Lies!</div>` },
 
-    { s:3, html:`<div class="ar ar-l">اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</div>
+    { s:5, html:`<div class="ar ar-l">اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</div>
       <div class="de big step" data-step="1">Lies im Namen deines Herrn, der erschuf.</div>` },
 
-    { s:3, html:`<div class="parse wide">
+    { s:6, html:`<div class="parse wide">
         <div class="cell"><div class="p-ar gold">اقْرَأْ</div><div class="arrow">↓</div><div class="p-de">Lektion 15</div></div>
         <div class="cell"><div class="p-ar">بِاسْمِ</div><div class="arrow">↓</div><div class="p-de">Lektion 6 + 9</div></div>
         <div class="cell"><div class="p-ar">رَبِّكَ</div><div class="arrow">↓</div><div class="p-de">Lektion 7</div></div>
         <div class="cell"><div class="p-ar">خَلَقَ</div><div class="arrow">↓</div><div class="p-de">Lektion 12</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">An mehrere</div>
+    { s:7, html:`<div class="kicker">An mehrere</div>
       <div class="glue">
         <div class="piece">اعْبُدْ</div><div class="plus">+</div><div class="piece gold">وا</div>
         <div class="plus">=</div><div class="piece">اعْبُدُوا</div>
       </div>
       <div class="de big step" data-step="1">diene! → dient!</div>` },
 
-    { s:3, html:`<div class="glue">
+    { s:8, html:`<div class="glue">
         <div class="piece">اهْدِ</div><div class="plus">+</div><div class="piece gold">نَا</div>
         <div class="plus">=</div><div class="piece">اهْدِنَا</div>
       </div>
       <div class="de big step" data-step="1">leite! → leite <b>uns</b>!</div>` },
 
-    { s:3, html:`<div class="kicker">Sure 1, Vers 6</div>
+    { s:9, html:`<div class="kicker">Sure 1, Vers 6</div>
       <div class="ar ar-l">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div>
       <div class="de big step" data-step="1">Leite uns den geraden Weg.</div>` },
 
-    { s:3, html:`<div class="kicker">Schaut genau hin</div>
+    { s:10, html:`<div class="kicker">Schaut genau hin</div>
       <div class="ar ar-l"><span class="gold">ال</span>صِّرَاطَ <span class="gold">ال</span>ْمُسْتَقِيمَ</div>
       <div class="de step" data-step="1">Beide mit الْ — die Eigenschaft macht mit.</div>
       <div class="de small step" data-step="2">Genau wie in Lektion 5 gelernt.</div>` },
 
-    { s:4, html:`<div class="rows">
+    { s:11, html:`<div class="rows">
         <div class="rowi"><div class="a">قُلْ</div><div class="b">sag!</div></div>
         <div class="rowi"><div class="a">اقْرَأْ</div><div class="b">lies!</div></div>
         <div class="rowi"><div class="a">اعْبُدُوا</div><div class="b">dient!</div></div>
         <div class="rowi"><div class="a">اهْدِنَا</div><div class="b">leite uns!</div></div>
       </div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:11, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>

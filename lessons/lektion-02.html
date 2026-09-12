@@ -7,7 +7,7 @@
 <title>Lektion 2 · Weibliche Wörter — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -42,21 +42,27 @@ const LESSON = {
       <p class="ar">هٰذِهِ &nbsp; آيَة &nbsp; لَيْلَة</p>` },
     { label:"Lektion", html:`
       <p>Im Arabischen hat jedes Wort ein Geschlecht — männlich oder weiblich. Und in den allermeisten
-      Fällen sieht man das Weibliche sofort: am Ende steht ein <span class="ar">ة</span>.</p>
-      <p>Dieser Buchstabe heißt <i>Tā' marbūṭa</i>, also „das gebundene T". Er sieht aus wie ein
+      Fällen sieht man das Weibliche sofort: am Ende steht ein <span class="ar">ة</span>.</p>` },
+    { label:"Lektion", html:`
+      <p>Dieser Buchstabe heißt <i>Tā' marbūṭa</i>, also „das gebundene T".</p>
+      <p>Er sieht aus wie ein
       <span class="ar">ه</span> mit zwei Punkten — und genau so verhält er sich auch: mal spricht man ihn
-      als <i>-a</i>, mal als <i>-at</i>.</p>
+      als <i>-a</i>, mal als <i>-at</i>.</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">آيَة</span> heißt <i>Zeichen</i> — und weil die Verse des Qurans Zeichen sind,
       heißt auch der einzelne Vers <span class="ar">آيَة</span>.</p>
       <p><span class="ar">لَيْلَة</span> heißt <i>Nacht</i>. Beide enden auf <span class="ar">ة</span>,
-      beide sind also weiblich.</p>
+      beide sind also weiblich.</p>` },
+    { label:"Lektion", html:`
       <p class="cue">— und jetzt der Punkt —</p>
       <p>Wenn das Wort weiblich ist, muss auch das Zeigewort weiblich sein. Aus <span class="ar">هٰذَا</span>
-      wird <span class="ar">هٰذِهِ</span>.</p>
+      wird <span class="ar">هٰذِهِ</span>.</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">هٰذِهِ آيَةٌ</span> — Das ist ein Zeichen.<br>
       <span class="ar">هٰذِهِ لَيْلَةٌ</span> — Das ist eine Nacht.</p>
       <p>Man sagt <b>nicht</b> <span class="ar">هٰذَا آيَةٌ</span>. Genau wie man im Deutschen nicht
-      „der Nacht" sagt.</p>
+      „der Nacht" sagt.</p>` },
+    { label:"Lektion", html:`
       <p>Und natürlich funktioniert das <span class="ar">وَ</span> von letzter Woche weiter:
       <span class="ar">هٰذَا سَبِيلٌ وَهٰذِهِ آيَةٌ</span>.</p>` },
     { label:"Abschluss", html:`
@@ -88,48 +94,49 @@ const LESSON = {
       </div>
       <div class="de small step" data-step="1">ein ه mit zwei Punkten — mal als <i>-a</i>, mal als <i>-at</i> gesprochen</div>` },
 
-    { s:3, html:`<div class="vocab">
+    { s:4, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">🪧</div><div class="w ar">آيَة</div><div class="m">Zeichen · Vers</div></div>
       </div>
       <div class="de small step" data-step="1">Die Verse des Qurans heißen „Zeichen".</div>` },
 
-    { s:3, html:`<div class="vocab">
+    { s:4, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">🌙</div><div class="w ar">لَيْلَة</div><div class="m">Nacht</div></div>
       </div>` },
 
-    { s:3, html:`<div class="pair">
+    { s:5, html:`<div class="pair">
         <div class="col"><h5>männlich</h5><div class="ar">هٰذَا</div><div class="m">سَبِيل &nbsp;·&nbsp; شَيْء</div></div>
         <div class="col"><h5>weiblich</h5><div class="ar gold">هٰذِهِ</div><div class="m">آيَة &nbsp;·&nbsp; لَيْلَة</div></div>
       </div>` },
 
-    { s:3, html:`<div class="ar ar-xl">هٰذِهِ آيَةٌ</div>
+    { s:6, html:`<div class="ar ar-xl">هٰذِهِ آيَةٌ</div>
       <div class="de big step" data-step="1">Das ist ein Zeichen.</div>` },
 
-    { s:3, html:`<div class="parse">
+    { s:6, html:`<div class="parse">
         <div class="cell"><div class="p-ar">هٰذِهِ</div><div class="arrow">↓</div><div class="p-de">das (w.)</div></div>
         <div class="cell"><div class="gap"></div><div class="p-de">— kein „ist" —</div></div>
         <div class="cell"><div class="p-ar">آيَةٌ</div><div class="arrow">↓</div><div class="p-de">ein Zeichen</div></div>
       </div>` },
 
-    { s:3, html:`<div class="ar ar-xl">هٰذِهِ لَيْلَةٌ</div>
+    { s:7, html:`<div class="ar ar-xl">هٰذِهِ لَيْلَةٌ</div>
       <div class="de big step" data-step="1">Das ist eine Nacht.</div>` },
 
-    { s:3, html:`<div class="kicker">So nicht:</div>
+    { s:7, html:`<div class="kicker">So nicht:</div>
       <div class="ar ar-l" style="opacity:.35;text-decoration:line-through">هٰذَا آيَةٌ</div>
       <div class="de step" data-step="1">wie „der Nacht" im Deutschen</div>
       <div class="de big step" data-step="2"><span class="ar ar-m">هٰذِهِ آيَةٌ</span> &nbsp;✓</div>` },
 
-    { s:3, html:`<div class="ar ar-l">هٰذَا سَبِيلٌ <span class="gold">وَ</span>هٰذِهِ آيَةٌ</div>
+    { s:8, html:`<div class="ar ar-l">هٰذَا سَبِيلٌ <span class="gold">وَ</span>هٰذِهِ آيَةٌ</div>
       <div class="de big step" data-step="1">Das ist ein Weg und das ist ein Zeichen.</div>` },
 
-    { s:4, html:`<div class="rows">
+    { s:9, html:`<div class="rows">
         <div class="rowi"><div class="a">هٰذِهِ</div><div class="b">das · dies (weiblich)</div></div>
         <div class="rowi"><div class="a">آيَة</div><div class="b">Zeichen · Vers</div></div>
         <div class="rowi"><div class="a">لَيْلَة</div><div class="b">Nacht</div></div>
       </div>
       <div class="de step" data-step="1"><span class="gold ar ar-m">ة</span> am Ende → weiblich → <span class="ar ar-m">هٰذِهِ</span></div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:9, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>

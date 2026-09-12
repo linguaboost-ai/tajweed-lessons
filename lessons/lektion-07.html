@@ -7,7 +7,7 @@
 <title>Lektion 7 · Mein, dein, sein — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -41,23 +41,31 @@ const LESSON = {
       <p class="ar">رَبّ &nbsp;—&nbsp; ـِي &nbsp; ـكَ &nbsp; ـهُ</p>` },
     { label:"Lektion", html:`
       <p>Im Deutschen haben wir eigene Wörter für den Besitz: mein, dein, sein. Im Arabischen sind das
-      keine eigenen Wörter — sie werden hinten angehängt.</p>
+      keine eigenen Wörter — sie werden hinten angehängt.</p>` },
+    { label:"Lektion", html:`
       <p>Unser Beispielwort heute: <span class="ar">رَبّ</span> — <i>Herr</i>. Es ist eines der häufigsten
       Wörter des Qurans.</p>
       <p><span class="ar">رَبِّي</span> — mein Herr.<br>
       <span class="ar">رَبُّكَ</span> — dein Herr.<br>
-      <span class="ar">رَبُّهُ</span> — sein Herr.</p>
+      <span class="ar">رَبُّهُ</span> — sein Herr.</p>` },
+    { label:"Lektion", html:`
       <p>Ihr seht: der Wortstamm bleibt stehen, nur das Ende wechselt. Das geht mit jedem Wort:
       <span class="ar">كِتَابِي</span> — mein Buch. <span class="ar">كِتَابُكَ</span> — dein Buch.</p>
-      <p class="cue">— jetzt die Mehrzahl —</p>
+      <p class="cue">— jetzt die Mehrzahl —</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">رَبُّنَا</span> — unser Herr.<br>
       <span class="ar">رَبُّكُمْ</span> — euer Herr.<br>
       <span class="ar">رَبُّهُمْ</span> — ihr Herr.</p>
-      <p>Und weil das Wort damit schon jemandem gehört, ist es automatisch bestimmt. Ein
+      <p>Und weil das Wort damit schon jemandem gehört, ist es automatisch bestimmt.</p>` },
+    { label:"Lektion", html:`
+      <p>Ein
       <span class="ar">الْ</span> kommt nicht mehr dazu, ein Tanwīn auch nicht — genau wie im Deutschen
-      niemand „das mein Buch" sagt.</p>
+      niemand „das mein Buch" sagt.</p>` },
+    { label:"Lektion", html:`
       <p>Zum Schluss ein Satz aus der Geschichte Ibrahims, <span class="ar">عليه السلام</span>. Er blickt
-      zum Himmel und sagt: <span class="ar">هٰذَا رَبِّي</span> — <i>Das ist mein Herr</i>. Er sagt es,
+      zum Himmel und sagt: <span class="ar">هٰذَا رَبِّي</span> — <i>Das ist mein Herr</i>.</p>` },
+    { label:"Lektion", html:`
+      <p>Er sagt es,
       um seinem Volk vorzuführen, wie haltlos es ist, einen Stern anzubeten: was untergeht, kann nicht
       der Herr sein.</p>
       <p>Zwei Wörter — beide kennt ihr. Und schon ein Vers.</p>` },
@@ -88,57 +96,58 @@ const LESSON = {
     { s:3, html:`<div class="ar ar-xl">رَبِّ<span class="gold">ي</span></div>
       <div class="de big step" data-step="1">mein Herr</div>` },
 
-    { s:3, html:`<div class="ar ar-xl">رَبُّ<span class="gold">كَ</span></div>
+    { s:4, html:`<div class="ar ar-xl">رَبُّ<span class="gold">كَ</span></div>
       <div class="de big step" data-step="1">dein Herr</div>` },
 
-    { s:3, html:`<div class="ar ar-xl">رَبُّ<span class="gold">هُ</span></div>
+    { s:5, html:`<div class="ar ar-xl">رَبُّ<span class="gold">هُ</span></div>
       <div class="de big step" data-step="1">sein Herr</div>` },
 
-    { s:3, html:`<div class="rows">
+    { s:5, html:`<div class="rows">
         <div class="rowi"><div class="a">رَبِّ<span class="gold">ي</span></div><div class="b">mein Herr</div></div>
         <div class="rowi"><div class="a">رَبُّ<span class="gold">كَ</span></div><div class="b">dein Herr</div></div>
         <div class="rowi"><div class="a">رَبُّ<span class="gold">هُ</span></div><div class="b">sein Herr</div></div>
       </div>
       <div class="de small step" data-step="1">Der Stamm bleibt — nur das Ende wechselt.</div>` },
 
-    { s:3, html:`<div class="kicker">Das geht mit jedem Wort</div>
+    { s:6, html:`<div class="kicker">Das geht mit jedem Wort</div>
       <div class="rows">
         <div class="rowi"><div class="a">كِتَابِي</div><div class="b">mein Buch</div></div>
         <div class="rowi step" data-step="1"><div class="a">كِتَابُكَ</div><div class="b">dein Buch</div></div>
         <div class="rowi step" data-step="2"><div class="a">سَبِيلُهُ</div><div class="b">sein Weg</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Und in der Mehrzahl</div>
+    { s:7, html:`<div class="kicker">Und in der Mehrzahl</div>
       <div class="rows">
         <div class="rowi"><div class="a">رَبُّ<span class="gold">نَا</span></div><div class="b">unser Herr</div></div>
         <div class="rowi step" data-step="1"><div class="a">رَبُّ<span class="gold">كُمْ</span></div><div class="b">euer Herr</div></div>
         <div class="rowi step" data-step="2"><div class="a">رَبُّ<span class="gold">هُمْ</span></div><div class="b">ihr Herr</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Wer besitzt, macht bestimmt</div>
+    { s:7, html:`<div class="kicker">Wer besitzt, macht bestimmt</div>
       <div class="ar ar-l" style="opacity:.35;text-decoration:line-through">الْرَبِّي</div>
       <div class="de step" data-step="1">wie „das mein Buch" — gibt es nicht</div>
       <div class="de big step" data-step="2"><span class="ar ar-m">رَبِّي</span> ist schon bestimmt.</div>` },
 
-    { s:3, html:`<div class="kicker">Ibrahim, عليه السلام, blickt zum Himmel</div>
+    { s:8, html:`<div class="kicker">Ibrahim, عليه السلام, blickt zum Himmel</div>
       <div class="ar ar-xl">هٰذَا رَبِّي</div>
       <div class="de big step" data-step="1">Das ist mein Herr.</div>` },
 
-    { s:3, html:`<div class="parse">
+    { s:9, html:`<div class="parse">
         <div class="cell"><div class="p-ar">هٰذَا</div><div class="arrow">↓</div><div class="p-de">Lektion 1</div></div>
         <div class="cell"><div class="p-ar">رَبِّي</div><div class="arrow">↓</div><div class="p-de">Lektion 7</div></div>
       </div>
       <div class="de step" data-step="1">Er sagt es über einen Stern — und zeigt seinem Volk:
         was untergeht, kann nicht der Herr sein.</div>` },
 
-    { s:4, html:`<div class="rows">
+    { s:10, html:`<div class="rows">
         <div class="rowi"><div class="a">ـِي</div><div class="b">mein</div></div>
         <div class="rowi"><div class="a">ـكَ</div><div class="b">dein</div></div>
         <div class="rowi"><div class="a">ـهُ</div><div class="b">sein</div></div>
         <div class="rowi"><div class="a">ـنَا &nbsp;·&nbsp; ـكُمْ &nbsp;·&nbsp; ـهُمْ</div><div class="b">unser · euer · ihr</div></div>
       </div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:10, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>

@@ -7,7 +7,7 @@
 <title>Lektion 16 · Fragen stellen — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -40,25 +40,32 @@ const LESSON = {
     { label:"Die neuen Wörter", html:`
       <p class="ar">هَلْ &nbsp; أَ &nbsp; مَنْ &nbsp; مَا &nbsp; كَيْفَ &nbsp; أَيْنَ</p>` },
     { label:"Lektion", html:`
-      <p>Im Deutschen fragen wir durch Umstellen: „Das ist ein Weg" → „Ist das ein Weg?".
-      Im Arabischen wird nichts umgestellt. Man setzt ein Fragewort davor, der Rest bleibt stehen.</p>
+      <p>Im Deutschen fragen wir durch Umstellen: „Das ist ein Weg" → „Ist das ein Weg?".</p>
+      <p>Im Arabischen wird nichts umgestellt. Man setzt ein Fragewort davor, der Rest bleibt stehen.</p>` },
+    { label:"Lektion", html:`
       <p>Für Ja-Nein-Fragen gibt es zwei: <span class="ar">هَلْ</span> als eigenes Wort, und
       <span class="ar">أَ</span> als angeklebter Buchstabe.</p>
       <p><span class="ar">هَلْ هٰذَا سَبِيلٌ؟</span> — Ist das ein Weg?<br>
-      <span class="ar">أَهٰذَا رَبِّي؟</span> — Ist das mein Herr?</p>
+      <span class="ar">أَهٰذَا رَبِّي؟</span> — Ist das mein Herr?</p>` },
+    { label:"Lektion", html:`
       <p>Beachtet auch das arabische Fragezeichen: <span class="ar">؟</span> — spiegelverkehrt, weil die
-      Schrift von rechts nach links läuft.</p>
+      Schrift von rechts nach links läuft.</p>` },
+    { label:"Lektion", html:`
       <p class="cue">— und die richtigen Fragewörter —</p>
       <p><span class="ar">مَنْ</span> — wer? <span class="ar">مَا</span> — was?
-      <span class="ar">كَيْفَ</span> — wie? <span class="ar">أَيْنَ</span> — wo?</p>
+      <span class="ar">كَيْفَ</span> — wie? <span class="ar">أَيْنَ</span> — wo?</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">مَنْ رَبُّكَ؟</span> — Wer ist dein Herr?<br>
       <span class="ar">مَا هٰذَا؟</span> — Was ist das?</p>
-      <p>Bei <span class="ar">مَا</span> müsst ihr aufpassen: dasselbe Wort hieß in Lektion 10 <i>nicht</i>.
-      Am Satzanfang und mit Fragezeichen ist es <i>was</i>, mitten in einer Aussage ist es <i>nicht</i>.
-      Der Zusammenhang entscheidet — so wie im Deutschen „das" mal Artikel und mal Fürwort ist.</p>
+      <p>Bei <span class="ar">مَا</span> müsst ihr aufpassen: dasselbe Wort hieß in Lektion 10 <i>nicht</i>.</p>` },
+    { label:"Lektion", html:`
+      <p>Am Satzanfang und mit Fragezeichen ist es <i>was</i>, mitten in einer Aussage ist es <i>nicht</i>.</p>
+      <p>Der Zusammenhang entscheidet — so wie im Deutschen „das" mal Artikel und mal Fürwort ist.</p>` },
+    { label:"Lektion", html:`
       <p>Ein Vers mit <span class="ar">كَيْفَ</span>:
       <span class="ar">كَيْفَ تَكْفُرُونَ بِاللَّهِ</span> — <i>Wie könnt ihr Allah verleugnen?</i>
-      Das <span class="ar">تَـ … ـُونَ</span> ist die Gegenwart aus Lektion 14: ihr.</p>
+      Das <span class="ar">تَـ … ـُونَ</span> ist die Gegenwart aus Lektion 14: ihr.</p>` },
+    { label:"Lektion", html:`
       <p>Das ist übrigens keine echte Frage. Sie erwartet keine Antwort, sondern lässt den Angesprochenen
       selbst nachdenken. Solche Fragen sind im Quran sehr häufig.</p>` },
     { label:"Abschluss", html:`
@@ -91,47 +98,48 @@ const LESSON = {
       <div class="de big step" data-step="1"><span class="ar ar-m">أَهٰذَا رَبِّي؟</span></div>
       <div class="de small step" data-step="2">Ein einziger Buchstabe macht die Frage.</div>` },
 
-    { s:3, html:`<div class="kicker">Auch das Fragezeichen dreht sich</div>
+    { s:4, html:`<div class="kicker">Auch das Fragezeichen dreht sich</div>
       <div class="glue">
         <div class="piece" style="opacity:.35">?</div><div class="plus">→</div><div class="piece gold">؟</div>
       </div>
       <div class="de small step" data-step="1">Die Schrift läuft nach links — das Zeichen auch.</div>` },
 
-    { s:3, html:`<div class="ar ar-l">مَنْ رَبُّكَ؟</div>
+    { s:5, html:`<div class="ar ar-l">مَنْ رَبُّكَ؟</div>
       <div class="de big step" data-step="1">Wer ist dein Herr?</div>` },
 
-    { s:3, html:`<div class="ar ar-l">مَا هٰذَا؟</div>
+    { s:6, html:`<div class="ar ar-l">مَا هٰذَا؟</div>
       <div class="de big step" data-step="1">Was ist das?</div>` },
 
-    { s:3, html:`<div class="kicker">Vorsicht bei مَا</div>
+    { s:7, html:`<div class="kicker">Vorsicht bei مَا</div>
       <div class="pair">
         <div class="col"><h5>am Satzanfang</h5><div class="ar">مَا هٰذَا؟</div><div class="m">Was ist das?</div></div>
         <div class="col"><h5>in einer Aussage</h5><div class="ar">مَا هٰذَا سَبِيلًا</div><div class="m">Das ist kein Weg.</div></div>
       </div>
       <div class="de small step" data-step="1">Dasselbe Wort, zwei Aufgaben — der Zusammenhang entscheidet.</div>` },
 
-    { s:3, html:`<div class="kicker">Sure 2, Vers 28</div>
+    { s:8, html:`<div class="kicker">Sure 2, Vers 28</div>
       <div class="ar ar-l">كَيْفَ تَكْفُرُونَ بِاللَّهِ</div>
       <div class="de big step" data-step="1">Wie könnt ihr Allah verleugnen?</div>` },
 
-    { s:3, html:`<div class="parse wide">
+    { s:9, html:`<div class="parse wide">
         <div class="cell"><div class="p-ar gold">كَيْفَ</div><div class="arrow">↓</div><div class="p-de">wie</div></div>
         <div class="cell"><div class="p-ar"><span class="gold">تَ</span>كْفُرُ<span class="gold">ونَ</span></div><div class="arrow">↓</div><div class="p-de">ihr verleugnet</div></div>
         <div class="cell"><div class="p-ar">بِاللَّهِ</div><div class="arrow">↓</div><div class="p-de">an Allah</div></div>
       </div>
       <div class="de small step" data-step="1">تَـ vorne, ـُونَ hinten — die Gegenwart aus Lektion 14.</div>` },
 
-    { s:3, html:`<div class="kicker">Eine Frage ohne Antwort</div>
+    { s:10, html:`<div class="kicker">Eine Frage ohne Antwort</div>
       <div class="de big">Sie erwartet keine Auskunft.</div>
       <div class="de step" data-step="1">Sie lässt den Angesprochenen selbst nachdenken — im Quran sehr häufig.</div>` },
 
-    { s:4, html:`<div class="rows">
+    { s:11, html:`<div class="rows">
         <div class="rowi"><div class="a">هَلْ &nbsp;·&nbsp; أَ</div><div class="b">Ist …? Hat …?</div></div>
         <div class="rowi"><div class="a">مَنْ &nbsp;·&nbsp; مَا</div><div class="b">wer? · was?</div></div>
         <div class="rowi"><div class="a">كَيْفَ &nbsp;·&nbsp; أَيْنَ</div><div class="b">wie? · wo?</div></div>
       </div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:11, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>

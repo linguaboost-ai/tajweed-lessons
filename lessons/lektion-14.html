@@ -7,7 +7,7 @@
 <title>Lektion 14 · Das Verb: Gegenwart — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -41,25 +41,31 @@ const LESSON = {
       <p class="ar">يَعْلَمُ &nbsp; تَعْلَمُونَ &nbsp; نَعْبُدُ</p>` },
     { label:"Lektion", html:`
       <p>Das ist die wichtigste Beobachtung dieser Lektion, und sie ist ganz einfach:
-      In der Vergangenheit hängt die Person <b>hinten</b>. In der Gegenwart steht sie <b>vorne</b>.</p>
+      In der Vergangenheit hängt die Person <b>hinten</b>. In der Gegenwart steht sie <b>vorne</b>.</p>` },
+    { label:"Lektion", html:`
       <p>Nehmen wir <span class="ar">عَلِمَ</span> — <i>er wusste</i>:</p>
       <p><span class="ar">يَعْلَمُ</span> — er weiß.<br>
       <span class="ar">تَعْلَمُ</span> — du weißt (und auch: sie weiß).<br>
       <span class="ar">أَعْلَمُ</span> — ich weiß.<br>
-      <span class="ar">نَعْلَمُ</span> — wir wissen.</p>
+      <span class="ar">نَعْلَمُ</span> — wir wissen.</p>` },
+    { label:"Lektion", html:`
       <p>Vier Buchstaben, vier Personen: <span class="ar">يَ</span> für er,
       <span class="ar">تَ</span> für du und sie, <span class="ar">أَ</span> für ich,
       <span class="ar">نَ</span> für wir.</p>
-      <p class="cue">— und wenn es mehrere sind? —</p>
+      <p class="cue">— und wenn es mehrere sind? —</p>` },
+    { label:"Lektion", html:`
       <p>Dann kommt hinten noch das <span class="ar">ـُونَ</span> aus Lektion 11 dazu:
       <span class="ar">تَعْلَمُونَ</span> — <i>ihr wisst</i>. <span class="ar">يَعْلَمُونَ</span> —
-      <i>sie wissen</i>. Vorne die Person, hinten die Mehrzahl.</p>
+      <i>sie wissen</i>. Vorne die Person, hinten die Mehrzahl.</p>` },
+    { label:"Lektion", html:`
       <p>Ein Vers, den viele kennen: <span class="ar">وَاللَّهُ يَعْلَمُ وَأَنْتُمْ لَا تَعْلَمُونَ</span> —
       <i>Und Allah weiß, und ihr wisst nicht.</i> Da ist alles drin: das <span class="ar">وَ</span> aus
-      Lektion 1, das <span class="ar">لَا</span> aus Lektion 10, und zweimal das Verb von heute.</p>
+      Lektion 1, das <span class="ar">لَا</span> aus Lektion 10, und zweimal das Verb von heute.</p>` },
+    { label:"Lektion", html:`
       <p>Und zum Schluss der Vers, den ihr in jedem Gebet sprecht:
       <span class="ar">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</span> —
-      <i>Dir dienen wir, und Dich bitten wir um Hilfe.</i></p>
+      <i>Dir dienen wir, und Dich bitten wir um Hilfe.</i></p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">نَعْبُدُ</span> und <span class="ar">نَسْتَعِينُ</span> — beide fangen mit
       <span class="ar">نَ</span> an. Wir.</p>` },
     { label:"Abschluss", html:`
@@ -89,7 +95,7 @@ const LESSON = {
         <div class="rowi step" data-step="3"><div class="a"><span class="gold">نَ</span>عْلَمُ</div><div class="b">wir wissen</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Und wenn es mehrere sind?</div>
+    { s:4, html:`<div class="kicker">Und wenn es mehrere sind?</div>
       <div class="glue">
         <div class="piece gold">تَ</div><div class="plus">+</div><div class="piece">عْلَمُ</div>
         <div class="plus">+</div><div class="piece gold">ونَ</div>
@@ -97,40 +103,41 @@ const LESSON = {
       <div class="de big step" data-step="1"><span class="ar ar-m">تَعْلَمُونَ</span> — ihr wisst</div>
       <div class="de small step" data-step="2">Vorne die Person, hinten die Mehrzahl aus Lektion 11.</div>` },
 
-    { s:3, html:`<div class="pair">
+    { s:5, html:`<div class="pair">
         <div class="col"><h5>einer</h5><div class="ar">يَعْلَمُ</div><div class="m">er weiß</div></div>
         <div class="col"><h5>mehrere</h5><div class="ar">يَعْلَمُونَ</div><div class="m">sie wissen</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Sure 2, Vers 216</div>
+    { s:6, html:`<div class="kicker">Sure 2, Vers 216</div>
       <div class="ar ar-l">وَاللَّهُ يَعْلَمُ وَأَنْتُمْ لَا تَعْلَمُونَ</div>
       <div class="de big step" data-step="1">Und Allah weiß, und ihr wisst nicht.</div>` },
 
-    { s:3, html:`<div class="parse wide">
+    { s:7, html:`<div class="parse wide">
         <div class="cell"><div class="p-ar">وَ</div><div class="arrow">↓</div><div class="p-de">Lektion 1</div></div>
         <div class="cell"><div class="p-ar">يَعْلَمُ</div><div class="arrow">↓</div><div class="p-de">Lektion 14</div></div>
         <div class="cell"><div class="p-ar">لَا</div><div class="arrow">↓</div><div class="p-de">Lektion 10</div></div>
         <div class="cell"><div class="p-ar">تَعْلَمُونَ</div><div class="arrow">↓</div><div class="p-de">Lektion 14</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Sure 1, Vers 5</div>
+    { s:8, html:`<div class="kicker">Sure 1, Vers 5</div>
       <div class="ar ar-l">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
       <div class="de big step" data-step="1">Dir dienen wir, und Dich bitten wir um Hilfe.</div>` },
 
-    { s:3, html:`<div class="pair">
+    { s:9, html:`<div class="pair">
         <div class="col"><h5>erste Hälfte</h5><div class="ar"><span class="gold">نَ</span>عْبُدُ</div><div class="m">wir dienen</div></div>
         <div class="col"><h5>zweite Hälfte</h5><div class="ar"><span class="gold">نَ</span>سْتَعِينُ</div><div class="m">wir bitten um Hilfe</div></div>
       </div>
       <div class="de small step" data-step="1">Beide fangen mit نَ an. Wir.</div>` },
 
-    { s:4, html:`<div class="rows">
+    { s:10, html:`<div class="rows">
         <div class="rowi"><div class="a">يَـ &nbsp;·&nbsp; تَـ</div><div class="b">er · du/sie</div></div>
         <div class="rowi"><div class="a">أَـ &nbsp;·&nbsp; نَـ</div><div class="b">ich · wir</div></div>
         <div class="rowi"><div class="a">ـُونَ</div><div class="b">… und zwar mehrere</div></div>
       </div>
       <div class="de step" data-step="1">Vergangenheit hinten — Gegenwart vorne.</div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:10, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>

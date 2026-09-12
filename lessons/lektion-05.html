@@ -7,7 +7,7 @@
 <title>Lektion 5 · Eigenschaftswörter — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -39,22 +39,30 @@ const LESSON = {
     { label:"Die neuen Wörter", html:`
       <p class="ar">مُبِين &nbsp; كَرِيم &nbsp; عَظِيم</p>` },
     { label:"Lektion", html:`
-      <p>Im Deutschen sagen wir „ein <b>deutliches</b> Buch" — das Eigenschaftswort steht vorne.
-      Im Arabischen steht es <b>hinten</b>: <span class="ar">كِتَابٌ مُبِينٌ</span>, wörtlich
-      „ein Buch, ein deutliches".</p>
+      <p>Im Deutschen sagen wir „ein <b>deutliches</b> Buch" — das Eigenschaftswort steht vorne.</p>
+      <p>Im Arabischen steht es <b>hinten</b>: <span class="ar">كِتَابٌ مُبِينٌ</span>, wörtlich
+      „ein Buch, ein deutliches".</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">مُبِين</span> heißt <i>klar, deutlich, offenkundig</i>.</p>
-      <p class="cue">— und jetzt die eine Regel, die ihr braucht —</p>
+      <p class="cue">— und jetzt die eine Regel, die ihr braucht —</p>` },
+    { label:"Lektion", html:`
       <p>Das Eigenschaftswort macht mit, was sein Wort macht. Ist das Wort unbestimmt, ist auch die
-      Eigenschaft unbestimmt. Bekommt das Wort <span class="ar">الْ</span>, bekommt die Eigenschaft
-      ebenfalls <span class="ar">الْ</span>.</p>
+      Eigenschaft unbestimmt.</p>
+      <p>Bekommt das Wort <span class="ar">الْ</span>, bekommt die Eigenschaft
+      ebenfalls <span class="ar">الْ</span>.</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">كِتَابٌ مُبِينٌ</span> — ein deutliches Buch.<br>
       <span class="ar">الْكِتَابُ الْمُبِينُ</span> — das deutliche Buch.</p>
-      <p>Und genau hier wird die Stolperfalle aus Lektion 3 zu eurem Freund. Denn wenn nur das erste Wort
+      <p>Und genau hier wird die Stolperfalle aus Lektion 3 zu eurem Freund.</p>` },
+    { label:"Lektion", html:`
+      <p>Denn wenn nur das erste Wort
       ein <span class="ar">الْ</span> hat und das zweite nicht, dann ist es <b>keine</b> Beschreibung mehr,
-      sondern eine Aussage: <span class="ar">الْكِتَابُ مُبِينٌ</span> — Das Buch ist deutlich.</p>
+      sondern eine Aussage: <span class="ar">الْكِتَابُ مُبِينٌ</span> — Das Buch ist deutlich.</p>` },
+    { label:"Lektion", html:`
       <p>Zwei weitere Eigenschaften, die ihr überall antreffen werdet:
       <span class="ar">كَرِيم</span> — <i>edel, großzügig, ehrwürdig</i>. Daher
-      <span class="ar">الْقُرْآنُ الْكَرِيمُ</span>, der edle Quran.</p>
+      <span class="ar">الْقُرْآنُ الْكَرِيمُ</span>, der edle Quran.</p>` },
+    { label:"Lektion", html:`
       <p>Und <span class="ar">عَظِيم</span> — <i>gewaltig, großartig</i>.</p>
       <p>Ist das Wort weiblich, wird auch die Eigenschaft weiblich — mit dem <span class="ar">ة</span>
       aus Lektion 2: <span class="ar">آيَةٌ كَرِيمَةٌ</span>, ein ehrwürdiges Zeichen.</p>` },
@@ -85,46 +93,47 @@ const LESSON = {
     { s:3, html:`<div class="kicker">Die eine Regel</div>
       <div class="de big">Die Eigenschaft macht mit, was ihr Wort macht.</div>` },
 
-    { s:3, html:`<div class="rows">
+    { s:4, html:`<div class="rows">
         <div class="rowi"><div class="a">كِتَابٌ مُبِينٌ</div><div class="b">ein deutliches Buch</div></div>
         <div class="rowi step" data-step="1"><div class="a"><span class="gold">الْ</span>كِتَابُ <span class="gold">الْ</span>مُبِينُ</div><div class="b">das deutliche Buch</div></div>
       </div>
       <div class="de small step" data-step="2">Beide ohne الْ — oder beide mit. Nie gemischt.</div>` },
 
-    { s:3, html:`<div class="kicker">Und wenn doch gemischt?</div>
+    { s:5, html:`<div class="kicker">Und wenn doch gemischt?</div>
       <div class="ar ar-l"><span class="gold">الْ</span>كِتَابُ مُبِينٌ</div>
       <div class="de big step" data-step="1">Das Buch ist deutlich.</div>
       <div class="de small step" data-step="2">Aus der Beschreibung wird eine Aussage.</div>` },
 
-    { s:3, html:`<div class="pair">
+    { s:6, html:`<div class="pair">
         <div class="col"><h5>Beschreibung</h5><div class="ar">الْكِتَابُ الْمُبِينُ</div><div class="m">das deutliche Buch</div></div>
         <div class="col"><h5>Aussage</h5><div class="ar">الْكِتَابُ مُبِينٌ</div><div class="m">Das Buch ist deutlich.</div></div>
       </div>` },
 
-    { s:3, html:`<div class="vocab">
+    { s:7, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">👑</div><div class="w ar">كَرِيم</div><div class="m">edel · ehrwürdig</div></div>
       </div>
       <div class="de step" data-step="1"><span class="ar ar-m">الْقُرْآنُ الْكَرِيمُ</span></div>
       <div class="de small step" data-step="2">der edle Quran</div>` },
 
-    { s:3, html:`<div class="vocab">
+    { s:8, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">🏔️</div><div class="w ar">عَظِيم</div><div class="m">gewaltig · großartig</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Auch das Geschlecht macht sie mit</div>
+    { s:9, html:`<div class="kicker">Auch das Geschlecht macht sie mit</div>
       <div class="pair">
         <div class="col"><h5>männlich</h5><div class="ar">كِتَابٌ كَرِيمٌ</div><div class="m">ein edles Buch</div></div>
         <div class="col"><h5>weiblich</h5><div class="ar">آيَةٌ كَرِيمَ<span class="gold">ةٌ</span></div><div class="m">ein ehrwürdiges Zeichen</div></div>
       </div>` },
 
-    { s:4, html:`<div class="rows">
+    { s:10, html:`<div class="rows">
         <div class="rowi"><div class="a">مُبِين</div><div class="b">klar · deutlich</div></div>
         <div class="rowi"><div class="a">كَرِيم</div><div class="b">edel · ehrwürdig</div></div>
         <div class="rowi"><div class="a">عَظِيم</div><div class="b">gewaltig</div></div>
       </div>
       <div class="de step" data-step="1">Eigenschaft steht hinten — und macht alles mit.</div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:10, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>

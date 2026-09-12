@@ -7,7 +7,7 @@
 <title>Lektion 1 · Zeigesätze — Quran verstehen lernen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="player">
@@ -41,24 +41,32 @@ const LESSON = {
       <p class="ar">هٰذَا &nbsp; شَيْء &nbsp; سَبِيل</p>` },
     { label:"Lektion", html:`
       <p>Es gibt heute Zeigesätze. Was ist ein Zeigesatz?</p>
-      <p>Ein Zeigesatz ist so etwas wie <span class="ar">هٰذَا سَبِيلٌ</span> — zu Deutsch: Das ist ein Weg.</p>
+      <p>Ein Zeigesatz ist so etwas wie <span class="ar">هٰذَا سَبِيلٌ</span> — zu Deutsch: Das ist ein Weg.</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">هٰذَا</span> bedeutet einfach nur <i>das</i> oder auch <i>dies</i>. Es ist ein Zeigesatz, weil ich
       quasi auf etwas zeige und sage: DAS ist ein Weg.</p>
-      <p>Weg auf Arabisch heißt <span class="ar">سَبِيل</span>.</p>
+      <p>Weg auf Arabisch heißt <span class="ar">سَبِيل</span>.</p>` },
+    { label:"Lektion", html:`
       <p class="cue">— und falls es euch aufgefallen ist —</p>
       <p>Im Arabischen gibt es kein Wort für „ist". Streng genommen steht da nur „das" und „ein Weg".
-      Man braucht kein „ist", man versteht es auch so.</p>
+      Man braucht kein „ist", man versteht es auch so.</p>` },
+    { label:"Lektion", html:`
       <p>Hier noch ein Beispiel: <span class="ar">هٰذَا شَيْءٌ</span> — Das ist ein Ding.
-      <span class="ar">شَيْء</span> ist ein allgemeines Wort für „etwas", „eine Sache", „irgendetwas".</p>
+      <span class="ar">شَيْء</span> ist ein allgemeines Wort für „etwas", „eine Sache", „irgendetwas".</p>` },
+    { label:"Lektion", html:`
       <p>Ihr bekommt noch ein kleines Wort gratis dazu: das Wort „und". Im Arabischen ist es fast nur ein
-      Buchstabe: <span class="ar">وَ</span>. Und anders als im Deutschen steht es nicht allein, sondern wird
-      mit dem nächsten Wort verbunden.</p>
+      Buchstabe: <span class="ar">وَ</span>.</p>` },
+    { label:"Lektion", html:`
+      <p>Und anders als im Deutschen steht es nicht allein, sondern wird
+      mit dem nächsten Wort verbunden.</p>` },
+    { label:"Lektion", html:`
       <p><span class="ar">هٰذَا سَبِيلٌ وَهٰذَا شَيْءٌ</span> — Das ist ein Weg UND das ist ein Ding.
       Das <span class="ar">وَ</span> wird einfach direkt vor das <span class="ar">هٰذَا</span> geklebt.</p>
       <p>Oder umgedreht: <span class="ar">هٰذَا شَيْءٌ وَهٰذَا سَبِيلٌ</span>.</p>` },
     { label:"Abschluss", html:`
       <p>Das war's für heute. Wir haben drei neue Wörter gelernt, daraus einen einfachen Zeigesatz gebildet
-      und das Wörtchen <span class="ar">وَ</span> für „und" kennengelernt.</p>
+      und das Wörtchen <span class="ar">وَ</span> für „und" kennengelernt.</p>` },
+    { label:"Abschluss", html:`
       <p>Bis zum nächsten Mal. <span class="ar">وعليكم السلام ورحمة الله وبركاته</span></p>` }
   ],
   slides: [
@@ -80,11 +88,11 @@ const LESSON = {
         <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
       </div>` },
 
-    { s:3, html:`<div class="vocab">
+    { s:4, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Wo steht „ist"?</div>
+    { s:4, html:`<div class="kicker">Wo steht „ist"?</div>
       <div class="parse">
         <div class="cell"><div class="p-ar">هٰذَا</div><div class="arrow">↓</div><div class="p-de">das</div></div>
         <div class="cell"><div class="gap"></div><div class="p-de step" data-step="1">— nichts —</div></div>
@@ -92,35 +100,35 @@ const LESSON = {
       </div>
       <div class="de big step" data-step="2">Das ist ein Weg.</div>` },
 
-    { s:3, html:`<div class="ar ar-xl">هٰذَا شَيْءٌ</div>
+    { s:5, html:`<div class="ar ar-xl">هٰذَا شَيْءٌ</div>
         <div class="de big step" data-step="1">Das ist ein Ding.</div>` },
 
-    { s:3, html:`<div class="vocab">
+    { s:6, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding · Sache · etwas</div></div>
       </div>` },
 
-    { s:3, html:`<div class="vocab">
+    { s:6, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
         <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding</div></div>
         <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
       </div>` },
 
-    { s:3, html:`<div class="kicker">Ein Wort geschenkt</div>
+    { s:7, html:`<div class="kicker">Ein Wort geschenkt</div>
       <div class="ar ar-xl gold">وَ</div>
       <div class="de big step" data-step="1">und</div>` },
 
-    { s:3, html:`<div class="glue">
+    { s:8, html:`<div class="glue">
         <div class="piece gold">وَ</div><div class="plus">+</div><div class="piece">هٰذَا</div>
       </div>
       <div class="de big step" data-step="1"><span class="ar ar-l"><span class="gold">وَ</span>هٰذَا</span></div>` },
 
-    { s:3, html:`<div class="ar ar-l">هٰذَا سَبِيلٌ <span class="gold">وَ</span>هٰذَا شَيْءٌ</div>
+    { s:8, html:`<div class="ar ar-l">هٰذَا سَبِيلٌ <span class="gold">وَ</span>هٰذَا شَيْءٌ</div>
       <div class="de big step" data-step="1">Das ist ein Weg <b>und</b> das ist ein Ding.</div>` },
 
-    { s:3, html:`<div class="ar ar-l">هٰذَا شَيْءٌ <span class="gold">وَ</span>هٰذَا سَبِيلٌ</div>
+    { s:9, html:`<div class="ar ar-l">هٰذَا شَيْءٌ <span class="gold">وَ</span>هٰذَا سَبِيلٌ</div>
       <div class="de big step" data-step="1">Das ist ein Ding <b>und</b> das ist ein Weg.</div>` },
 
-    { s:4, html:`<div class="vocab">
+    { s:10, html:`<div class="vocab">
         <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
         <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding</div></div>
         <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
@@ -128,7 +136,8 @@ const LESSON = {
       <div class="de step" data-step="1"><span class="ar ar-m">هٰذَا سَبِيلٌ</span></div>
       <div class="de step" data-step="2"><span class="ar ar-m gold">وَ</span> &nbsp;=&nbsp; und</div>` },
 
-    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+    { s:11, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+
   ]
 };
 </script>
