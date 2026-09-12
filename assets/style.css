@@ -81,8 +81,7 @@ body.player{height:100vh;height:100dvh;display:flex;flex-direction:column;overfl
   padding:3vh 4vw calc(3vh + 1.7rem);position:relative;min-height:0;overflow:hidden}
 .slide{display:none;width:100%;max-width:1100px;text-align:center}
 /* Der Player verkleinert eine zu hohe Folie, damit sie nie in die Notizen ragt. */
-.slide.on{transform-origin:center center}
-.slide.on{display:block}
+.slide.on{display:block;transform-origin:center center}
 
 .kicker{font-size:clamp(1.1rem,2.4vw,1.9rem);font-weight:400;color:var(--dim);margin-bottom:2.5rem}
 .title{font-size:clamp(1.6rem,4vw,3rem);font-weight:500;line-height:1.25}
