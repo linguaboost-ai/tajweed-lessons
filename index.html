@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quran verstehen lernen — Lektion 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#000;
+  --paper:#fff;
+  --stage:#000;
+  --stage-ink:#fff;
+  --gold:#d9a441;
+  --dim:rgba(255,255,255,.42);
+  --strip:20vh;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--stage);color:var(--stage-ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+
+/* ---------- Transkriptleiste ---------- */
+#strip{
+  flex:0 0 var(--strip);display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;background:#3a3a3a;border-bottom:1px solid #3a3a3a;
+}
+#strip.hidden{display:none}
+.box{
+  background:var(--paper);color:var(--ink);padding:.7rem .85rem;
+  overflow-y:auto;font-size:.78rem;line-height:1.5;
+  border-top:3px solid transparent;transition:border-color .15s,opacity .15s;
+  opacity:.55;
+}
+.box.on{opacity:1;border-top-color:var(--gold)}
+.box h4{
+  font-size:.62rem;font-weight:600;letter-spacing:.04em;
+  color:#6b6b6b;margin-bottom:.4rem;
+}
+.box p{margin-bottom:.55rem}
+.box p:last-child{margin-bottom:0}
+.box .ar{font-family:Amiri,serif;font-size:1.15em}
+.box .cue{color:#9a9a9a}
+
+/* ---------- Bühne ---------- */
+#stage{flex:1;display:flex;align-items:center;justify-content:center;padding:3vh 4vw;position:relative}
+.slide{display:none;width:100%;max-width:1100px;text-align:center}
+.slide.on{display:block}
+
+.kicker{font-size:clamp(1.1rem,2.4vw,1.9rem);font-weight:400;color:var(--dim);margin-bottom:2.5rem}
+.title{font-size:clamp(1.6rem,4vw,3rem);font-weight:500;line-height:1.25}
+.title .sub{display:block;margin-top:1.2rem;font-size:.55em;color:var(--dim)}
+
+.ar{font-family:Amiri,serif;direction:rtl;line-height:1.7}
+.ar-xl{font-size:clamp(3.2rem,11vw,8.5rem)}
+.ar-l{font-size:clamp(2.4rem,7vw,5.5rem)}
+.ar-m{font-size:clamp(1.9rem,4.6vw,3.4rem)}
+
+.de{font-size:clamp(1.2rem,3vw,2.3rem);color:var(--dim);margin-top:2rem}
+.de.big{color:var(--stage-ink);font-weight:500}
+
+.gold{color:var(--gold)}
+
+/* Vokabelzeilen */
+.vocab{display:inline-flex;flex-direction:column;gap:1.6rem;text-align:right;margin:0 auto}
+.vrow{display:grid;grid-template-columns:1.6em minmax(0,1fr) auto;align-items:baseline;gap:2rem;direction:rtl}
+.vrow .emoji{font-size:clamp(1.6rem,3.6vw,2.6rem);direction:ltr}
+.vrow .w{font-family:Amiri,serif;font-size:clamp(2.2rem,6vw,4.2rem)}
+.vrow .m{direction:ltr;text-align:left;font-size:clamp(1rem,2.4vw,1.6rem);color:var(--dim);white-space:nowrap}
+
+/* Wort-für-Wort-Zerlegung */
+.parse{display:inline-grid;grid-auto-flow:column;column-gap:clamp(2rem,7vw,6rem);direction:rtl;margin:0 auto}
+.parse .cell{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.parse .p-ar{font-family:Amiri,serif;font-size:clamp(2.6rem,8vw,6rem)}
+.parse .arrow{color:var(--gold);font-size:1.6rem;line-height:1}
+.parse .p-de{direction:ltr;font-size:clamp(1rem,2.6vw,1.7rem);color:var(--dim);min-height:1.4em}
+.parse .gap{border-bottom:2px dashed rgba(217,164,65,.55);min-width:3.5em;align-self:end;margin-bottom:.9rem}
+
+/* wa-Verschmelzung */
+.glue{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,4vw,3rem);direction:rtl}
+.glue .piece{font-family:Amiri,serif;font-size:clamp(2.6rem,8vw,6rem)}
+.glue .plus{color:var(--gold);font-size:clamp(1.6rem,4vw,3rem)}
+
+.step{opacity:0;transition:opacity .28s ease}
+.step.shown{opacity:1}
+@media (prefers-reduced-motion:reduce){.step{transition:none}}
+
+/* ---------- Fußzeile ---------- */
+#bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.09)}
+#bar span{display:block;height:100%;background:var(--gold);transition:width .2s}
+#hint{position:absolute;right:1rem;bottom:1rem;font-size:.7rem;color:rgba(255,255,255,.28)}
+</style>
+</head>
+<body>
+
+<div id="strip"></div>
+<div id="stage">
+  <div id="bar"><span></span></div>
+  <div id="hint">← →  ·  T Transkript  ·  F Vollbild</div>
+</div>
+
+<script>
+/* =======================================================================
+   LEKTIONSDATEN — hier trägst du die weiteren Lektionen ein.
+   slide.s = Nummer der Transkriptbox (0–4)
+   Jede Zeile mit step:1 erscheint erst beim nächsten Tastendruck.
+   ======================================================================= */
+const LESSON = {
+  no: 1,
+  thema: "Zeigesätze",
+  sections: [
+    { label:"Begrüßung", html:`
+      <p>Liebe Geschwister, <span class="ar">السلام عليكم ورحمة الله</span>!</p>
+      <p>Herzlich willkommen zu einer weiteren Lektion im Kurs „Quran verstehen lernen".</p>` },
+    { label:"Thema", html:`
+      <p>Heute schauen wir uns einfache <b>Zeigesätze</b> an.</p>` },
+    { label:"Die drei Wörter", html:`
+      <p>Dazu gibt es drei Wörter, und hier kommen sie schon:</p>
+      <p class="ar">هٰذَا &nbsp; شَيْء &nbsp; سَبِيل</p>` },
+    { label:"Lektion", html:`
+      <p>Es gibt heute Zeigesätze. Was ist ein Zeigesatz?</p>
+      <p>Ein Zeigesatz ist so etwas wie <span class="ar">هٰذَا سَبِيلٌ</span> — zu Deutsch: Das ist ein Weg.</p>
+      <p><span class="ar">هٰذَا</span> bedeutet einfach nur <i>das</i> oder auch <i>dies</i>. Es ist ein Zeigesatz, weil ich
+      quasi auf etwas zeige und sage: DAS ist ein Weg.</p>
+      <p>Weg auf Arabisch heißt <span class="ar">سَبِيل</span>.</p>
+      <p class="cue">— und falls es euch aufgefallen ist —</p>
+      <p>Im Arabischen gibt es kein Wort für „ist". Streng genommen steht da nur „das" und „ein Weg".
+      Man braucht kein „ist", man versteht es auch so.</p>
+      <p>Hier noch ein Beispiel: <span class="ar">هٰذَا شَيْءٌ</span> — Das ist ein Ding.
+      <span class="ar">شَيْء</span> ist ein allgemeines Wort für „etwas", „eine Sache", „irgendetwas".</p>
+      <p>Ihr bekommt noch ein kleines Wort gratis dazu: das Wort „und". Im Arabischen ist es fast nur ein
+      Buchstabe: <span class="ar">وَ</span>. Und anders als im Deutschen steht es nicht allein, sondern wird
+      mit dem nächsten Wort verbunden.</p>
+      <p><span class="ar">هٰذَا سَبِيلٌ وَهٰذَا شَيْءٌ</span> — Das ist ein Weg UND das ist ein Ding.
+      Das <span class="ar">وَ</span> wird einfach direkt vor das <span class="ar">هٰذَا</span> geklebt.</p>
+      <p>Oder umgedreht: <span class="ar">هٰذَا شَيْءٌ وَهٰذَا سَبِيلٌ</span>.</p>` },
+    { label:"Abschluss", html:`
+      <p>Das war's für heute. Wir haben drei neue Wörter gelernt, daraus einen einfachen Zeigesatz gebildet
+      und das Wörtchen <span class="ar">وَ</span> für „und" kennengelernt.</p>
+      <p>Bis zum nächsten Mal. <span class="ar">وعليكم السلام ورحمة الله وبركاته</span></p>` }
+  ],
+  slides: [
+    { s:0, html:`<div class="title">Quran verstehen lernen
+        <span class="sub">Lektion 1 · Zeigesätze</span></div>` },
+
+    { s:1, html:`<div class="title">Heute: Zeigesätze</div>` },
+
+    { s:2, html:`<div class="vocab">
+        <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m"></div></div>
+        <div class="vrow step" data-step="1"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m"></div></div>
+        <div class="vrow step" data-step="2"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m"></div></div>
+      </div>` },
+
+    { s:3, html:`<div class="ar ar-xl">هٰذَا سَبِيلٌ</div>
+        <div class="de big step" data-step="1">Das ist ein Weg.</div>` },
+
+    { s:3, html:`<div class="vocab">
+        <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
+      </div>` },
+
+    { s:3, html:`<div class="vocab">
+        <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
+      </div>` },
+
+    { s:3, html:`<div class="kicker">Wo steht „ist"?</div>
+      <div class="parse">
+        <div class="cell"><div class="p-ar">هٰذَا</div><div class="arrow">↓</div><div class="p-de">das</div></div>
+        <div class="cell"><div class="gap"></div><div class="p-de step" data-step="1">— nichts —</div></div>
+        <div class="cell"><div class="p-ar">سَبِيلٌ</div><div class="arrow">↓</div><div class="p-de">ein Weg</div></div>
+      </div>
+      <div class="de big step" data-step="2">Das ist ein Weg.</div>` },
+
+    { s:3, html:`<div class="ar ar-xl">هٰذَا شَيْءٌ</div>
+        <div class="de big step" data-step="1">Das ist ein Ding.</div>` },
+
+    { s:3, html:`<div class="vocab">
+        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding · Sache · etwas</div></div>
+      </div>` },
+
+    { s:3, html:`<div class="vocab">
+        <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
+        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding</div></div>
+        <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
+      </div>` },
+
+    { s:3, html:`<div class="kicker">Ein Wort geschenkt</div>
+      <div class="ar ar-xl gold">وَ</div>
+      <div class="de big step" data-step="1">und</div>` },
+
+    { s:3, html:`<div class="glue">
+        <div class="piece gold">وَ</div><div class="plus">+</div><div class="piece">هٰذَا</div>
+      </div>
+      <div class="de big step" data-step="1"><span class="ar ar-l"><span class="gold">وَ</span>هٰذَا</span></div>` },
+
+    { s:3, html:`<div class="ar ar-l">هٰذَا سَبِيلٌ <span class="gold">وَ</span>هٰذَا شَيْءٌ</div>
+      <div class="de big step" data-step="1">Das ist ein Weg <b>und</b> das ist ein Ding.</div>` },
+
+    { s:3, html:`<div class="ar ar-l">هٰذَا شَيْءٌ <span class="gold">وَ</span>هٰذَا سَبِيلٌ</div>
+      <div class="de big step" data-step="1">Das ist ein Ding <b>und</b> das ist ein Weg.</div>` },
+
+    { s:4, html:`<div class="vocab">
+        <div class="vrow"><div class="emoji">👉</div><div class="w ar">هٰذَا</div><div class="m">das · dies</div></div>
+        <div class="vrow"><div class="emoji">📦</div><div class="w ar">شَيْء</div><div class="m">Ding</div></div>
+        <div class="vrow"><div class="emoji">🛤️</div><div class="w ar">سَبِيل</div><div class="m">Weg</div></div>
+      </div>
+      <div class="de step" data-step="1"><span class="ar ar-m">هٰذَا سَبِيلٌ</span></div>
+      <div class="de step" data-step="2"><span class="ar ar-m gold">وَ</span> &nbsp;=&nbsp; und</div>` },
+
+    { s:4, html:`<div class="ar ar-l">وعليكم السلام ورحمة الله وبركاته</div>` }
+  ]
+};
+
+/* ======================= Maschinerie ======================= */
+const strip = document.getElementById('strip');
+const stage = document.getElementById('stage');
+const bar = document.querySelector('#bar span');
+
+LESSON.sections.forEach((sec,i)=>{
+  const d = document.createElement('div');
+  d.className='box'; d.dataset.i=i;
+  d.innerHTML = `<h4>${sec.label}</h4>${sec.html}`;
+  d.addEventListener('click',()=>{ const t=LESSON.slides.findIndex(s=>s.s===i); if(t>=0) goto(t,0); });
+  strip.appendChild(d);
+});
+
+LESSON.slides.forEach((sl,i)=>{
+  const d=document.createElement('div');
+  d.className='slide'; d.dataset.i=i; d.innerHTML=sl.html;
+  stage.appendChild(d);
+});
+
+let idx=0, step=0;
+function maxStep(i){
+  const el=stage.querySelector(`.slide[data-i="${i}"]`);
+  const steps=[...el.querySelectorAll('.step')].map(e=>+e.dataset.step||1);
+  return steps.length?Math.max(...steps):0;
+}
+function render(){
+  stage.querySelectorAll('.slide').forEach(e=>e.classList.toggle('on',+e.dataset.i===idx));
+  const el=stage.querySelector(`.slide[data-i="${idx}"]`);
+  el.querySelectorAll('.step').forEach(e=>e.classList.toggle('shown',(+e.dataset.step||1)<=step));
+  const sec=LESSON.slides[idx].s;
+  strip.querySelectorAll('.box').forEach(b=>{
+    const on=+b.dataset.i===sec; b.classList.toggle('on',on);
+    if(on) b.scrollIntoView({block:'nearest',inline:'nearest'});
+  });
+  bar.style.width=(100*(idx+1)/LESSON.slides.length)+'%';
+}
+function goto(i,s){ idx=Math.max(0,Math.min(LESSON.slides.length-1,i)); step=s??0; render(); }
+function next(){ if(step<maxStep(idx)) step++; else if(idx<LESSON.slides.length-1){idx++;step=0;} render(); }
+function prev(){ if(step>0) step--; else if(idx>0){ idx--; step=maxStep(idx);} render(); }
+
+addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();next();}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+  else if(e.key==='Home')goto(0,0);
+  else if(e.key==='End')goto(LESSON.slides.length-1,0);
+  else if(e.key==='t'||e.key==='T')strip.classList.toggle('hidden');
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+});
+stage.addEventListener('click',e=>{ (e.clientX < innerWidth*0.25) ? prev() : next(); });
+render();
+</script>
+</body>
+</html>
